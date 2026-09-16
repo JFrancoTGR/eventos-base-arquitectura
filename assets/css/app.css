@@ -1,0 +1,308 @@
+/* FONTS */
+
+@font-face {
+    font-family: 'archivoReg';
+    src: url('../assets/type/Archivo-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'archivoMed';
+    src: url('../assets/type/Archivo-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'archivoBold';
+    src: url('../assets/type/Archivo-Bold.ttf');
+}
+
+@font-face {
+    font-family: 'archivoBlack';
+    src: url('../assets/type/Archivo-Black.ttf');
+}
+
+@font-face {
+    font-family: 'archivoIt';
+    src: url('../assets/type/Archivo-Italic.ttf');
+}
+
+/* GENERAL */
+
+* {
+    border: 0;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --primary-color: #c31422;
+    --secondary-color: #dad6d6;
+    --black: #000;
+    --black2: rgba(0, 0, 0, 0.7);
+    --white: #fff;
+    --button: rgb(66, 66, 66);
+    --grey: rgb(241, 241, 241);
+    --grey2: rgb(138, 138, 138);
+    --typeC: rgb(97, 97, 97);
+
+    --type-alfa: "archivoReg", sans-serif;
+    --type-beta: "archivoBold", sans-serif;
+}
+
+::-moz-selection {
+    color: var(--primary-color);
+    background: var(--secondary-color);
+}
+
+::selection {
+    color: var(--primary-color);
+    background: var(--secondary-color);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--type-alfa);
+    background-color: var(--grey);
+}
+
+/* HEADER */
+
+.siteHeader {
+    width: 100%;
+    height: 120px;
+    background-color: var(--primary-color);
+}
+
+.headerContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo {
+    width: 180px;
+    max-width: 80%;
+    height: auto;
+    display: block;
+}
+
+/* FORM CONTAINER */
+
+.formContainer {
+    width: 80%;
+    min-height: calc(100vh - 120px);
+    height: auto;
+    margin: 0 auto;
+    padding: 40px 0;
+    color: var(--typeC);
+    background-color: var(--grey);
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.infoContainer {
+    width: 100%;
+    max-width: 900px;
+    padding: 0 50px 30px;
+}
+
+.title,
+.description {
+    padding: 15px;
+}
+
+.p12 {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* FORMULARIO */
+
+.formContent {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#registration-form {
+    width: 100%;
+    max-width: 600px;
+}
+
+.formTitle {
+    font-family: var(--type-beta);
+    font-size: 25px;
+    padding: 20px;
+}
+
+.formSubtitle {
+    font-family: var(--type-beta);
+    font-size: 16px;
+    color: var(--typeC);
+    margin-bottom: 15px;
+}
+
+.guestContainer {
+    border-top: 1px solid rgba(195, 20, 34, 0.25);
+}
+
+.guestContainer + .guestContainer {
+    padding-top: 10px;
+}
+
+.labelsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.broker,
+.cliente {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 150px;
+    border: 1px solid var(--primary-color);
+    padding: 15px;
+    cursor: pointer;
+}
+
+label {
+    cursor: pointer;
+}
+
+.dataContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 25px;
+}
+
+/* Utility class placed after layout display rules so it is not overridden */
+.oculto {
+    display: none !important;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    width: 100%;
+    border: 1px solid var(--grey2);
+    color: var(--primary-color);
+    font-family: var(--type-alfa);
+    font-size: 14px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background-color: var(--white);
+}
+
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder {
+    color: var(--grey2);
+}
+
+button {
+    min-width: 160px;
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 12px 20px;
+    cursor: pointer;
+    transition: all ease-in-out 0.3s;
+}
+
+button:hover {
+    background-color: var(--black);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.swal2-confirm {
+    background-color: var(--primary-color) !important;
+}
+
+/* RESPONSIVE */
+
+@media screen and (max-width: 768px) {
+    .formContainer {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .infoContainer {
+        padding: 0 20px 25px;
+    }
+
+     #registration-form {
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .siteHeader {
+        height: 100px;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .formContainer {
+        min-height: calc(100vh - 100px);
+        padding: 25px 20px;
+    }
+
+    .infoContainer {
+        padding: 0 0 20px;
+    }
+
+    .title,
+    .description {
+        padding: 10px 0;
+    }
+
+    .formTitle {
+        font-size: 20px;
+        padding: 15px 0;
+    }
+
+    .labelsContainer {
+        flex-direction: column;
+        gap: 10px;
+        margin: 20px 0;
+    }
+
+    .broker,
+    .cliente {
+        width: 100%;
+        min-width: initial;
+    }
+
+    .dataContainer {
+        padding: 20px 0;
+    }
+
+    button {
+        width: 100%;
+    }
+}

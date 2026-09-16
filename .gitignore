@@ -1,0 +1,22 @@
+# Configuración sensible
+/config/config.php
+
+# Logs
+/storage/logs/*
+!/storage/logs/.gitkeep
+
+# Rate limiter runtime
+/storage/ratelimit/*
+!/storage/ratelimit/.gitkeep
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+
+# IDE / editor
+.vscode/
+.idea/
+
+# PHP / Composer
+/vendor/
+composer.lock
