@@ -41,6 +41,20 @@ class RegistrationService
             );
         }
 
+        $registrantType = isset($meta['registrant_type'])
+            ? trim((string) $meta['registrant_type'])
+            : '';
+
+        if (! in_array($registrantType, ['client', 'broker'], true)) {
+            throw new RegistrationException(
+                'INVALID_REGISTRANT_TYPE',
+                'Debes indicar si eres cliente o broker.',
+                422
+            );
+        }
+
+        $meta['registrant_type'] = $registrantType;
+
         /*
          * 2. Validar estado
          */
@@ -326,28 +340,31 @@ class RegistrationService
     {
         $stmt = $this->pdo->prepare(
             'INSERT INTO registrations (
-                event_id,
-                status,
-                utm_source,
-                utm_medium,
-                utm_campaign,
-                ip_address,
-                user_agent,
-                referrer
-            ) VALUES (
-                ?,
-                "active",
-                ?,
-                ?,
-                ?,
-                ?,
-                ?,
-                ?
-            )'
+        event_id,
+        status,
+        registrant_type,
+        utm_source,
+        utm_medium,
+        utm_campaign,
+        ip_address,
+        user_agent,
+        referrer
+    ) VALUES (
+        ?,
+        "active",
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?,
+        ?
+    )'
         );
 
         $stmt->execute([
             $eventId,
+            $meta['registrant_type'],
             $this->nullableString($meta, 'utm_source', 100),
             $this->nullableString($meta, 'utm_medium', 100),
             $this->nullableString($meta, 'utm_campaign', 150),

@@ -140,26 +140,32 @@ try {
         ? $payload['utm']
         : [];
 
+    $registrantType = isset($payload['registrant_type'])
+        ? trim((string) $payload['registrant_type'])
+        : '';
+
     $meta = [
-        'utm_source'   => isset($utm['source'])
+        'utm_source'      => isset($utm['source'])
             ? $utm['source']
             : null,
 
-        'utm_medium'   => isset($utm['medium'])
+        'utm_medium'      => isset($utm['medium'])
             ? $utm['medium']
             : null,
 
-        'utm_campaign' => isset($utm['campaign'])
+        'utm_campaign'    => isset($utm['campaign'])
             ? $utm['campaign']
             : null,
 
-        'ip_address'   => $ipAddress,
+        'ip_address'      => $ipAddress,
 
-        'user_agent'   => isset($_SERVER['HTTP_USER_AGENT'])
+        'registrant_type' => $registrantType,
+
+        'user_agent'      => isset($_SERVER['HTTP_USER_AGENT'])
             ? $_SERVER['HTTP_USER_AGENT']
             : null,
 
-        'referrer'     => isset($_SERVER['HTTP_REFERER'])
+        'referrer'        => isset($_SERVER['HTTP_REFERER'])
             ? $_SERVER['HTTP_REFERER']
             : null,
     ];
