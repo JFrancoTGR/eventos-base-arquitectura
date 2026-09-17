@@ -1,28 +1,27 @@
 /* FONTS */
-
 @font-face {
     font-family: 'archivoReg';
-    src: url('../assets/type/Archivo-Regular.ttf');
+    src: url('../type/Archivo-Regular.ttf');
 }
 
 @font-face {
     font-family: 'archivoMed';
-    src: url('../assets/type/Archivo-Medium.ttf');
+    src: url('../type/Archivo-Medium.ttf');
 }
 
 @font-face {
     font-family: 'archivoBold';
-    src: url('../assets/type/Archivo-Bold.ttf');
+    src: url('../type/Archivo-Bold.ttf');
 }
 
 @font-face {
     font-family: 'archivoBlack';
-    src: url('../assets/type/Archivo-Black.ttf');
+    src: url('../type/Archivo-Black.ttf');
 }
 
 @font-face {
     font-family: 'archivoIt';
-    src: url('../assets/type/Archivo-Italic.ttf');
+    src: url('../type/Archivo-Italic.ttf');
 }
 
 /* GENERAL */

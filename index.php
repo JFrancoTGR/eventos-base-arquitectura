@@ -127,6 +127,28 @@
         autocomplete="tel"
         required
     >
+
+    <div class="labelsContainer">
+    <label class="cliente">
+        <input
+            type="radio"
+            name="registrant_type"
+            value="client"
+            required
+        >
+        Soy cliente
+    </label>
+
+    <label class="broker">
+        <input
+            type="radio"
+            name="registrant_type"
+            value="broker"
+            required
+        >
+        Soy broker
+    </label>
+</div>
 </div>
 
             <div id="guests-container"></div>

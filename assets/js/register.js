@@ -37,18 +37,34 @@
     </p>
 
     <input
+        type="text"
+        class="guest-first-name"
+        placeholder="Nombre"
+        autocomplete="given-name"
+        required
+    >
+
+    <input
+        type="text"
+        class="guest-last-name"
+        placeholder="Apellidos"
+        autocomplete="family-name"
+        required
+    >
+
+    <input
         type="email"
         class="guest-email"
-        placeholder="Correo electrónico del invitado"
-        autocomplete="off"
+        placeholder="Correo electrónico"
+        autocomplete="email"
         required
     >
 
     <input
         type="tel"
         class="guest-phone"
-        placeholder="Teléfono del invitado"
-        autocomplete="off"
+        placeholder="Teléfono"
+        autocomplete="tel"
         required
     >
 
@@ -82,7 +98,11 @@
 
       guest.dataset.guest = String(position);
 
-      const title = guest.querySelector('h2');
+      const title = guest.querySelector('.formSubtitle');
+
+      if (title) {
+        title.textContent = `Invitado ${position}`;
+      }
 
       if (title) {
         title.textContent = `Invitado ${position}`;
@@ -148,8 +168,14 @@
       return;
     }
 
+    const registrantType = form.querySelector(
+      'input[name="registrant_type"]:checked',
+    );
+
     const payload = {
       event: eventSlug,
+
+      registrant_type: registrantType ? registrantType.value : null,
 
       attendees: buildAttendees(),
 
